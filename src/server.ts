@@ -2,6 +2,10 @@ import fastify  from "fastify";
 import cors from '@fastify/cors';
 import { routes } from "./routes";
 
+//heitor_dev
+//cliente123
+//prisma/schema.prisma
+
 const app = fastify({ logger: true })
 
 const start = async () => {
