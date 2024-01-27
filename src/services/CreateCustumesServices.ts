@@ -1,11 +1,26 @@
 import prismaClient from "../prisma";
 
+interface CreatCustemerProps{
+    name: string;
+    email: string
+}
+
 class CreateCustumesServices{
-    async execute(){
+    async execute({ name, email}: CreatCustemerProps){
 
-        console.log("ROta foi Chamada")
+        if(!name || !email){
+            throw new Error("Preencha Todos os campos")
+        }
 
-        return true
+        const customer = await prismaClient.customer.create({
+            data:{
+                name,
+                email,
+                status: true
+            }
+        })
+
+        return customer
     }
 
 }
